@@ -21,7 +21,7 @@ func TestLength(t *testing.T) {
 		length := seg.Length()
 		if length != results[i] {
 			t.Errorf("testcase [%v]: Length failed, expected %v, got %v",
-				i, results[i], length)
+				i+1, results[i], length)
 		}
 	}
 
@@ -47,12 +47,33 @@ func TestMidPoint(t *testing.T) {
 		midpoint := seg.MidPoint()
 		if midpoint != midpoints[i] {
 			t.Errorf("testcase [%v]: MidPoint failed, expected %v, got %v",
-				i, midpoints[i], midpoint)
+				i+1, midpoints[i], midpoint)
 		}
 	}
 }
 
-// TestIntersection of two Segment2d
-func TestIntersection(t *testing.T) {
-	// TODO: test intersection
+// TestIntersects of two Segment2d
+func TestIntersects(t *testing.T) {
+	target := New2d(geometry.NewPoint2d(0, 0), geometry.NewPoint2d(1, 1))
+	segments := []Segment2d{
+		New2d(geometry.NewPoint2d(0, 1), geometry.NewPoint2d(1, 0)),
+		New2d(geometry.NewPoint2d(0.5, 0.5), geometry.NewPoint2d(2, 1)),
+		New2d(geometry.NewPoint2d(0, 0.75), geometry.NewPoint2d(2, 3.75)),
+		New2d(geometry.NewPoint2d(1.5, 1.5), geometry.NewPoint2d(3, 2)),
+		New2d(geometry.NewPoint2d(0.5, 0.5), geometry.NewPoint2d(1.5, 1.5)),
+		New2d(geometry.NewPoint2d(-1, -1), geometry.NewPoint2d(0.5, 0.5)),
+		New2d(geometry.NewPoint2d(1.5, 1.5), geometry.NewPoint2d(2, 2)),
+	}
+
+	results := []bool{true, true, false, false, true, true, false}
+
+	for i, seg := range segments {
+		output := target.Intersects(seg)
+		result := results[i]
+		if output != result {
+			t.Errorf("testcase [%v]: Intersects failed, got %v, expected %v",
+				i+1, output, result)
+		}
+	}
+
 }
