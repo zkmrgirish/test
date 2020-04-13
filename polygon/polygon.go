@@ -1,3 +1,4 @@
+// Package polygon provides polygon geometric entity implementation
 package polygon
 
 import (
@@ -24,7 +25,7 @@ func (p Polygon2d) Vertexes() []geometry.Point2d {
 
 // Edges of the polygon in order
 func (p Polygon2d) Edges() []segment.Segment2d {
-	vertexes := p.vertexes
+	vertexes := p.Vertexes()
 	numVertexes := len(vertexes)
 
 	edges := make([]segment.Segment2d, numVertexes)
