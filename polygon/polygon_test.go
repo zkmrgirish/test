@@ -16,7 +16,7 @@ func TestIntersects(t *testing.T) {
 		geometry.NewPoint2d(1, 2),
 		geometry.NewPoint2d(0, 1),
 	}
-	p := New2d(vs)
+	p := New(vs)
 	segments := []segment.Segment2d{
 		segment.New2d(geometry.NewPoint2d(-1, 0), geometry.NewPoint2d(-0.5, 0.5)),
 		segment.New2d(geometry.NewPoint2d(-1, 0), geometry.NewPoint2d(0.5, 1.5)),

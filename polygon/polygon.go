@@ -6,25 +6,25 @@ import (
 	"github.com/zkmrgirish/geometry/segment"
 )
 
-// Polygon2d in 2-dimensions
-type Polygon2d struct {
+// Polygon in 2-dimensions
+type Polygon struct {
 	vertexes []geometry.Point2d
 }
 
-// New2d polygon
-func New2d(vs []geometry.Point2d) Polygon2d {
-	return Polygon2d{
+// New polygon
+func New(vs []geometry.Point2d) Polygon {
+	return Polygon{
 		vertexes: vs,
 	}
 }
 
 // Vertexes of the polygon
-func (p Polygon2d) Vertexes() []geometry.Point2d {
+func (p Polygon) Vertexes() []geometry.Point2d {
 	return p.vertexes
 }
 
 // Edges of the polygon in order
-func (p Polygon2d) Edges() []segment.Segment2d {
+func (p Polygon) Edges() []segment.Segment2d {
 	vertexes := p.Vertexes()
 	numVertexes := len(vertexes)
 
@@ -36,7 +36,7 @@ func (p Polygon2d) Edges() []segment.Segment2d {
 }
 
 // Intersects check if segment s intersects the polygon p
-func (p Polygon2d) Intersects(s segment.Segment2d) bool {
+func (p Polygon) Intersects(s segment.Segment2d) bool {
 	for _, edge := range p.Edges() {
 		if s.Intersects(edge) {
 			return true
