@@ -1,21 +1,26 @@
+// Package geometry provides elementary geometric entites
+// and basic algorithms related to 2d computational geometry
 package geometry
 
-// Point2D is a point in 2-deimension
-type Point2D struct {
+// Point2d with x, y coordinates
+type Point2d struct {
 	x, y float64
 }
 
-func NewPoint2D(x, y float64) Point2D {
-	return Point2D{
+// NewPoint2d with x,y coordinates
+func NewPoint2d(x, y float64) Point2d {
+	return Point2d{
 		x: x,
 		y: y,
 	}
 }
 
-func (p Point2D) X() float64 {
+// X coordinate of the point2d
+func (p Point2d) X() float64 {
 	return p.x
 }
 
-func (p Point2D) Y() float64 {
+// Y coordinate of the point2d
+func (p Point2d) Y() float64 {
 	return p.y
 }

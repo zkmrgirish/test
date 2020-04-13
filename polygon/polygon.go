@@ -5,24 +5,24 @@ import (
 	"github.com/zkmrgirish/geometry/segment"
 )
 
-// Polygon in 2-dimensions
-type Polygon struct {
-	vertexes []geometry.Point2D
+// Polygon2d in 2-dimensions
+type Polygon2d struct {
+	vertexes []geometry.Point2d
 }
 
-// get all the vertexes of the polygon in order
-func (p Polygon) Vertexes() []geometry.Point2D {
+// Vertexes of the polygon
+func (p Polygon2d) Vertexes() []geometry.Point2d {
 	return p.vertexes
 }
 
-// get edges of the polygon in order
-func (p Polygon) Edges() []segment.Segment2D {
+// Edges of the polygon in order
+func (p Polygon2d) Edges() []segment.Segment2d {
 	vertexes := p.vertexes
-	no_vertexes := len(vertexes)
+	numVertexes := len(vertexes)
 
-	edges := make([]segment.Segment2D, no_vertexes)
-	for i := 0; i < no_vertexes; i++ {
-		edges[i] = segment.New(vertexes[i], vertexes[(i+1)%no_vertexes])
+	edges := make([]segment.Segment2d, numVertexes)
+	for i := 0; i < numVertexes; i++ {
+		edges[i] = segment.New2d(vertexes[i], vertexes[(i+1)%numVertexes])
 	}
 	return edges
 }
