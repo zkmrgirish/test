@@ -1,7 +1,4 @@
-// Package util provides utility functions for computational geometry
-package util
-
-import "github.com/zkmrgirish/geometry"
+package geometry
 
 type orientation int
 
@@ -13,7 +10,7 @@ const (
 )
 
 // Orientation of three points in 2d plain
-func Orientation(p, q, r geometry.Point2d) orientation {
+func Orientation(p, q, r Point2d) orientation {
 	orient := (q.Y()-p.Y())*(r.X()-q.X()) - (q.X()-p.X())*(r.Y()-q.Y())
 
 	switch {
