@@ -11,7 +11,7 @@ func TestPolygonIntersects(t *testing.T) {
 		NewPoint2d(1, 2),
 		NewPoint2d(0, 1),
 	}
-	p := New(vs)
+	p := NewPolygon(vs)
 	segments := []Segment2d{
 		NewSegment2d(NewPoint2d(-1, 0), NewPoint2d(-0.5, 0.5)),
 		NewSegment2d(NewPoint2d(-1, 0), NewPoint2d(0.5, 1.5)),

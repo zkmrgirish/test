@@ -5,8 +5,8 @@ type Polygon struct {
 	vertexes []Point2d
 }
 
-// New polygon
-func New(vs []Point2d) Polygon {
+// NewPolygon polygon
+func NewPolygon(vs []Point2d) Polygon {
 	return Polygon{
 		vertexes: vs,
 	}
