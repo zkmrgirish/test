@@ -31,8 +31,9 @@ func (s Segment2d) MidPoint() Point2d {
 	)
 }
 
-// Contains checks if point p is on segment s
-func (s Segment2d) Contains(p Point2d) bool {
+// contains checks if point p is on segment s
+// given p lies on same line on which segment s lies
+func (s Segment2d) contains(p Point2d) bool {
 	onSegment := (p.X() <= math.Max(s.p1.X(), s.p2.X())) &&
 		(p.X() >= math.Min(s.p1.X(), s.p2.X())) &&
 		(p.Y() <= math.Max(s.p1.Y(), s.p2.Y())) &&
@@ -53,11 +54,11 @@ func (s Segment2d) Intersects(t Segment2d) bool {
 		return true
 	}
 
-	if o1 == COLINEAR && s.Contains(t.p1) {
+	if o1 == COLINEAR && s.contains(t.p1) {
 		return true
 	}
 
-	if o2 == COLINEAR && s.Contains(t.p2) {
+	if o2 == COLINEAR && s.contains(t.p2) {
 		return true
 	}
 
