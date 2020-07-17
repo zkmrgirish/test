@@ -1,6 +1,6 @@
 // Package geometry provides elementary geometric entites
 // and basic algorithms related to 2d computational geometry
-package geometry
+package test
 
 // Point2d with x, y coordinates
 type Point2d struct {

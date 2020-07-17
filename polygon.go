@@ -1,4 +1,4 @@
-package geometry
+package test
 
 // Polygon in 2-dimensions
 type Polygon struct {
